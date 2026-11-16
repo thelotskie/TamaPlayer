@@ -1,9 +1,9 @@
 name: CI/CD Build
 
 on:
-  push:
-    branches:
-      - master
+  # Tama Player fork: upstream triggered this on push to master. Our branch is
+  # master and our everyday build is tama-build.yml, so this heavy 5-flavor
+  # release matrix is manual-only until signing secrets are added.
   pull_request:
   workflow_dispatch:
 
