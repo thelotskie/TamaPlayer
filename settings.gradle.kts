@@ -1,1 +1,55 @@
-cGx1Z2luTWFuYWdlbWVudCB7CiAgcmVwb3NpdG9yaWVzIHsKICAgIGdvb2dsZSB7CiAgICAgIGNvbnRlbnQgewogICAgICAgIGluY2x1ZGVHcm91cEJ5UmVnZXgoImNvbVxcLmFuZHJvaWQuKiIpCiAgICAgICAgaW5jbHVkZUdyb3VwQnlSZWdleCgiY29tXFwuZ29vZ2xlLioiKQogICAgICAgIGluY2x1ZGVHcm91cEJ5UmVnZXgoImFuZHJvaWR4LioiKQogICAgICAgIC8vIEtTUCBpcyBwdWJsaXNoZWQgdG8gdGhlIFBsdWdpbiBQb3J0YWwgYW5kIE1hdmVuIENlbnRyYWwsIG5ldmVyIEdvb2dsZSBNYXZlbi4KICAgICAgICBleGNsdWRlR3JvdXAoImNvbS5nb29nbGUuZGV2dG9vbHMua3NwIikKICAgICAgfQogICAgfQogICAgbWF2ZW5DZW50cmFsKCkKICAgIGdyYWRsZVBsdWdpblBvcnRhbCgpCiAgfQp9CnBsdWdpbnMgewogIGlkKCJvcmcuZ3JhZGxlLnRvb2xjaGFpbnMuZm9vamF5LXJlc29sdmVyLWNvbnZlbnRpb24iKSB2ZXJzaW9uICIxLjAuMCIKfQpkZXBlbmRlbmN5UmVzb2x1dGlvbk1hbmFnZW1lbnQgewogIHJlcG9zaXRvcmllc01vZGUuc2V0KFJlcG9zaXRvcmllc01vZGUuRkFJTF9PTl9QUk9KRUNUX1JFUE9TKQogIHJlcG9zaXRvcmllcyB7CiAgICBnb29nbGUoKQogICAgbWF2ZW5DZW50cmFsKCkKICAgIGV4Y2x1c2l2ZUNvbnRlbnQgewogICAgICBmb3JSZXBvc2l0b3J5IHsKICAgICAgICBpdnkgewogICAgICAgICAgbmFtZSA9ICJtcHZsaWJHaXRIdWJSZWxlYXNlcyIKICAgICAgICAgIHVybCA9IHVyaSgiaHR0cHM6Ly9naXRodWIuY29tL1JpdGVzaHAyMDAxL21wdmxpYkFuZHJvaWQvcmVsZWFzZXMvZG93bmxvYWQiKQogICAgICAgICAgcGF0dGVybkxheW91dCB7CiAgICAgICAgICAgIGFydGlmYWN0KCJ2W3JldmlzaW9uXS9bYXJ0aWZhY3RdLVtyZXZpc2lvbl0uW2V4dF0iKQogICAgICAgICAgfQogICAgICAgICAgbWV0YWRhdGFTb3VyY2VzIHsKICAgICAgICAgICAgYXJ0aWZhY3QoKQogICAgICAgICAgfQogICAgICAgIH0KICAgICAgfQogICAgICBmaWx0ZXIgewogICAgICAgIGluY2x1ZGVHcm91cCgiYXBwLmd5cm9sZXQubXB2bGliIikKICAgICAgfQogICAgfQogICAgbWF2ZW4odXJsID0gImh0dHBzOi8vd3d3LmppdHBhY2suaW8iKSB7CiAgICAgIGNvbnRlbnQgewogICAgICAgIC8vIE9ubHkgdXNlIEppdFBhY2sgZm9yIHNwZWNpZmljIGRlcGVuZGVuY2llcyB0byBhdm9pZCB1bm5lY2Vzc2FyeSBjaGVja3MKICAgICAgICBpbmNsdWRlR3JvdXAoImlvLmdpdGh1Yi5hYmRhbGxhaG1laGl6IikKICAgICAgICBpbmNsdWRlR3JvdXAoImNvbS5naXRodWIuYWJkYWxsYWhtZWhpeiIpCiAgICAgICAgaW5jbHVkZUdyb3VwKCJjb20uZ2l0aHViLksxcmFraXNob3UiKQogICAgICAgIGluY2x1ZGVHcm91cCgiY29tLmdpdGh1Yi5tYXJsYm9yby1hZHZhbmNlIikKICAgICAgICBpbmNsdWRlR3JvdXAoImNvbS5naXRodWIudGhlZ3JpenpseWxhYnMiKQogICAgICB9CiAgICB9CiAgfQp9Cgpyb290UHJvamVjdC5uYW1lID0gIlRhbWFQbGF5ZXIiCmluY2x1ZGUoIjphcHAiKQo=
+pluginManagement {
+  repositories {
+    google {
+      content {
+        includeGroupByRegex("com\\.android.*")
+        includeGroupByRegex("com\\.google.*")
+        includeGroupByRegex("androidx.*")
+        // KSP is published to the Plugin Portal and Maven Central, never Google Maven.
+        excludeGroup("com.google.devtools.ksp")
+      }
+    }
+    mavenCentral()
+    gradlePluginPortal()
+  }
+}
+plugins {
+  id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    google()
+    mavenCentral()
+    exclusiveContent {
+      forRepository {
+        ivy {
+          name = "mpvlibGitHubReleases"
+          url = uri("https://github.com/Riteshp2001/mpvlibAndroid/releases/download")
+          patternLayout {
+            artifact("v[revision]/[artifact]-[revision].[ext]")
+          }
+          metadataSources {
+            artifact()
+          }
+        }
+      }
+      filter {
+        includeGroup("app.gyrolet.mpvlib")
+      }
+    }
+    maven(url = "https://www.jitpack.io") {
+      content {
+        // Only use JitPack for specific dependencies to avoid unnecessary checks
+        includeGroup("io.github.abdallahmehiz")
+        includeGroup("com.github.abdallahmehiz")
+        includeGroup("com.github.K1rakishou")
+        includeGroup("com.github.marlboro-advance")
+        includeGroup("com.github.thegrizzlylabs")
+      }
+    }
+  }
+}
+
+rootProject.name = "TamaPlayer"
+include(":app")
