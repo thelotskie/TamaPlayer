@@ -1,1 +1,18 @@
-IyBCdWlsZGluZyBUYW1hIFBsYXllcgoKVXBzdHJlYW0gYnVpbGQgKGZyb20gVVBTVFJFQU1fUkVBRE1FLm1kKToKICBKREsgMTcsIEFuZHJvaWQgU0RLLCBOREsgMjcuMy4xMzc1MDcyNCwgY29tcGlsZVNkayAzNwogIC4vZ3JhZGxldyA6YXBwOmFzc2VtYmxlU3RhbmRhcmREZWJ1ZyAgICAgKFdpbmRvd3M6IGdyYWRsZXcuYmF0KQoKVGhpcyBWTSBjYW5ub3QgYnVpbGQgaXQ6IEdyYWRsZS9BR1AgZGllcyBoZXJlIChkYWVtb24sIH4zMDBNQiBmcmVlIFJBTSAtCnNlZSBBR0VOVFMubWQpIGFuZCB0aGlzIGlzIGEgZnVsbCBDb21wb3NlICsgbmF0aXZlIGxpYm1wdiBwcm9qZWN0LCBmYXIKaGVhdmllciB0aGFuIHRoZSBtYW51YWwgYWFwdDIvZDggYnVpbGRzIHVzZWQgZm9yIHRoZSBzbWFsbCBUYW1hIGFwcHMuCgpDaG9zZW4gcm91dGUgKDIwMjYtMTEtMTYsIE90aGVsbyk6IEdpdEh1YiBBY3Rpb25zIG9uIHRoZSBUYW1hUGxheWVyIHJlcG8uCi5naXRodWIvd29ya2Zsb3dzL3RhbWEtYnVpbGQueW1sIGJ1aWxkcyBhbiBpbnN0YWxsYWJsZSBkZWJ1ZyBBUEsgYW5kIHN0b3JlcwppdCBhcyBhIHdvcmtmbG93IGFydGlmYWN0LiBPdGhlciBvcHRpb25zIGlmIGV2ZXIgbmVlZGVkOgoyLiBCdWlsZCBvbiBPdGhlbG8ncyBXaW5kb3dzIFBDIHdpdGggQW5kcm9pZCBTdHVkaW8gLyBKREsgMTcKMy4gQSBWUFMgd2l0aCA4R0IrIFJBTQoKU2lnbmluZzogY3JlYXRlIG91ciBvd24ga2V5c3RvcmUgYmVmb3JlIGFueSBwdWJsaWMgcmVsZWFzZSBhbmQgYmFjayBpdCB1cCAtCmxvc2luZyBpdCBtZWFucyB1c2VycyBtdXN0IHVuaW5zdGFsbCB0byB1cGRhdGUgKHNhbWUgbGVzc29uIGFzIFRhbWEgQm9vdGgpLgo=
+# Building Tama Player
+
+Upstream build (from UPSTREAM_README.md):
+  JDK 17, Android SDK, NDK 27.3.13750724, compileSdk 37
+  ./gradlew :app:assembleStandardDebug     (Windows: gradlew.bat)
+
+This VM cannot build it: Gradle/AGP dies here (daemon, ~300MB free RAM -
+see AGENTS.md) and this is a full Compose + native libmpv project, far
+heavier than the manual aapt2/d8 builds used for the small Tama apps.
+
+Chosen route (2026-11-16, Othelo): GitHub Actions on the TamaPlayer repo.
+.github/workflows/tama-build.yml builds an installable debug APK and stores
+it as a workflow artifact. Other options if ever needed:
+2. Build on Othelo's Windows PC with Android Studio / JDK 17
+3. A VPS with 8GB+ RAM
+
+Signing: create our own keystore before any public release and back it up -
+losing it means users must uninstall to update (same lesson as Tama Booth).
