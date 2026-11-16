@@ -1,1 +1,195 @@
-LyoKICogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEFHUEwtMy4wLW9yLWxhdGVyCiAqLwoKcGFja2FnZSBhcHAuZ3lyb2xldC5tcHZyeC5kYXRhLmx5cmljcy5wcm92aWRlcnMKCmltcG9ydCBhbmRyb2lkLnV0aWwuTG9nCmltcG9ydCBhcHAuZ3lyb2xldC5tcHZyeC5CdWlsZENvbmZpZwppbXBvcnQgYXBwLmd5cm9sZXQubXB2cngubmV0d29yay5TaGFyZWRIdHRwQ2xpZW50CmltcG9ydCBhcHAuZ3lyb2xldC5tcHZyeC5uZXR3b3JrLmF3YWl0UmVzcG9uc2UKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5DYW5jZWxsYXRpb25FeGNlcHRpb24KaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5jdXJyZW50Q29yb3V0aW5lQ29udGV4dAppbXBvcnQga290bGlueC5zZXJpYWxpemF0aW9uLmpzb24uSnNvbgppbXBvcnQgb2todHRwMy5IdHRwVXJsLkNvbXBhbmlvbi50b0h0dHBVcmxPck51bGwKaW1wb3J0IG9raHR0cDMuTWVkaWFUeXBlLkNvbXBhbmlvbi50b01lZGlhVHlwZU9yTnVsbAppbXBvcnQgb2todHRwMy5Pa0h0dHBDbGllbnQKaW1wb3J0IG9raHR0cDMuUmVxdWVzdAppbXBvcnQgb2todHRwMy5SZXNwb25zZQppbXBvcnQgb2todHRwMy5SZXF1ZXN0Qm9keS5Db21wYW5pb24udG9SZXF1ZXN0Qm9keQppbXBvcnQgamF2YS51dGlsLmNvbmN1cnJlbnQuVGltZVVuaXQKaW1wb3J0IGphdmEudXRpbC5jb25jdXJyZW50LmF0b21pYy5BdG9taWNCb29sZWFuCmltcG9ydCBrb3RsaW4uY29yb3V0aW5lcy5BYnN0cmFjdENvcm91dGluZUNvbnRleHRFbGVtZW50CmltcG9ydCBrb3RsaW4uY29yb3V0aW5lcy5Db3JvdXRpbmVDb250ZXh0CgovKiogU2hhcmVkIGJ5IGEgcHJvdmlkZXIncyBjaGlsZCByZXF1ZXN0cywgaW5jbHVkaW5nIGl0cyBtaXJyb3IgcmFjZS4gKi8KaW50ZXJuYWwgY2xhc3MgTHlyaWNzUmVxdWVzdFN0YXR1cyA6IEFic3RyYWN0Q29yb3V0aW5lQ29udGV4dEVsZW1lbnQoS2V5KSB7CiAgY29tcGFuaW9uIG9iamVjdCBLZXkgOiBDb3JvdXRpbmVDb250ZXh0LktleTxMeXJpY3NSZXF1ZXN0U3RhdHVzPgogIHZhbCBmYWlsZWQgPSBBdG9taWNCb29sZWFuKGZhbHNlKQp9CgppbnRlcm5hbCBzdXNwZW5kIGZ1biByZWNvcmRMeXJpY3NGYWlsdXJlKCkgewogIGN1cnJlbnRDb3JvdXRpbmVDb250ZXh0KClbTHlyaWNzUmVxdWVzdFN0YXR1c10/LmZhaWxlZD8uc2V0KHRydWUpCn0KCi8qKgogKiBTaGFyZWQgcGx1bWJpbmcgZm9yIHRoZSBseXJpY3MgcHJvdmlkZXJzLgogKgogKiBFdmVyeSBwcm92aWRlciBpcyByYWNlZCBhZ2FpbnN0IHRoZSBvdGhlcnMsIHNvIG9uZSB0aGF0IGhhbmdzIGhvbGRzIHVwIHRoZQogKiB3aG9sZSBsb29rdXA6IGRlYWRsaW5lcyBoZXJlIGFyZSBkZWxpYmVyYXRlbHkgZmFyIHNob3J0ZXIgdGhhbiB0aGUgc2hhcmVkCiAqIGNsaWVudCdzIHN0cmVhbS1vcmllbnRlZCBvbmVzLiBBIGx5cmljIHRoYXQgYXJyaXZlcyBhZnRlciB0aGUgc2Vjb25kIGNob3J1cwogKiBpcyBvZiBubyB1c2UsIGFuZCB0aGUgcHJvdmlkZXJzIHN0aWxsIHdhaXRpbmcgYmVoaW5kIGl0IGFyZSB0aGUgYmV0dGVyIGFuc3dlci4KICovCmludGVybmFsIHZhbCBseXJpY3NKc29uID0KICBKc29uIHsKICAgIGlnbm9yZVVua25vd25LZXlzID0gdHJ1ZQogICAgaXNMZW5pZW50ID0gdHJ1ZQogIH0KCmludGVybmFsIHZhbCBMWVJJQ1NfQUdFTlQgPSAiVGFtYVBsYXllci8ke0J1aWxkQ29uZmlnLlZFUlNJT05fTkFNRX0gKGJhc2VkIG9uIGh0dHBzOi8vZ2l0aHViLmNvbS9SaXRlc2hwMjAwMS9tcHZSeCkiCgpwcml2YXRlIGNvbnN0IHZhbCBUSU1FT1VUX1NFQ09ORFMgPSA2TAoKLyoqIEhvc3RzIHRoYXQgaGF2ZSB0byByZXNvbHZlIGEgdHJhY2sgYWdhaW5zdCBhbiB1cHN0cmVhbSBjYXRhbG9ndWUgZmlyc3QuICovCnByaXZhdGUgY29uc3QgdmFsIFBBVElFTlRfVElNRU9VVF9TRUNPTkRTID0gMTVMCgpwcml2YXRlIHZhbCBjbGllbnQ6IE9rSHR0cENsaWVudCBieSBsYXp5IHsKICBTaGFyZWRIdHRwQ2xpZW50LmRlcml2ZSB7CiAgICBjYWxsVGltZW91dChUSU1FT1VUX1NFQ09ORFMsIFRpbWVVbml0LlNFQ09ORFMpCiAgICBjb25uZWN0VGltZW91dCgzLCBUaW1lVW5pdC5TRUNPTkRTKQogICAgcmVhZFRpbWVvdXQoVElNRU9VVF9TRUNPTkRTLCBUaW1lVW5pdC5TRUNPTkRTKQogIH0KfQoKcHJpdmF0ZSB2YWwgcGF0aWVudENsaWVudDogT2tIdHRwQ2xpZW50IGJ5IGxhenkgewogIFNoYXJlZEh0dHBDbGllbnQuZGVyaXZlIHsKICAgIGNhbGxUaW1lb3V0KFBBVElFTlRfVElNRU9VVF9TRUNPTkRTLCBUaW1lVW5pdC5TRUNPTkRTKQogICAgY29ubmVjdFRpbWVvdXQoMTAsIFRpbWVVbml0LlNFQ09ORFMpCiAgICByZWFkVGltZW91dChQQVRJRU5UX1RJTUVPVVRfU0VDT05EUywgVGltZVVuaXQuU0VDT05EUykKICB9Cn0KCi8qKiBCb2R5IG9mIGEgc3VjY2Vzc2Z1bCBHRVQsIG9yIG51bGwgZm9yIGFueSBmYWlsdXJlIGF0IGFsbC4gKi8KaW50ZXJuYWwgc3VzcGVuZCBmdW4gbHlyaWNzR2V0KAogIHVybDogU3RyaW5nLAogIGhlYWRlcnM6IE1hcDxTdHJpbmcsIFN0cmluZz4gPSBlbXB0eU1hcCgpLAogIHBhdGllbnQ6IEJvb2xlYW4gPSBmYWxzZSwKKTogU3RyaW5nPyA9IGx5cmljc0NhbGwodXJsLCBoZWFkZXJzLCBwYXRpZW50KQoKLyoqIEJvZHkgb2YgYSBHRVQgY2FycnlpbmcgYW4gQXBwbGUtc3R5bGUgYmVhcmVyIHRva2VuIGFuZCBicm93c2VyIG9yaWdpbi4gKi8KaW50ZXJuYWwgc3VzcGVuZCBmdW4gbHlyaWNzR2V0QXV0aG9yaXplZCgKICB1cmw6IFN0cmluZywKICBiZWFyZXI6IFN0cmluZywKKTogU3RyaW5nPyA9CiAgbHlyaWNzR2V0KAogICAgdXJsLAogICAgYnVpbGRNYXAgewogICAgICBwdXQoIkF1dGhvcml6YXRpb24iLCAiQmVhcmVyICRiZWFyZXIiKQogICAgICBwdXQoIk9yaWdpbiIsICJodHRwczovL211c2ljLmFwcGxlLmNvbSIpCiAgICAgIHB1dCgiUmVmZXJlciIsICJodHRwczovL211c2ljLmFwcGxlLmNvbS8iKQogICAgfSwKICApCgppbnRlcm5hbCBzdXNwZW5kIGZ1biBseXJpY3NQb3N0KAogIHVybDogU3RyaW5nLAogIGJvZHk6IFN0cmluZywKICBjb250ZW50VHlwZTogU3RyaW5nID0gImFwcGxpY2F0aW9uL2pzb247IGNoYXJzZXQ9dXRmLTgiLAogIGhlYWRlcnM6IE1hcDxTdHJpbmcsIFN0cmluZz4gPSBlbXB0eU1hcCgpLAopOiBTdHJpbmc/ID0KICBydW5DYXRjaGluZ1F1aWV0IHsKICAgIHZhbCByZXF1ZXN0ID0KICAgICAgUmVxdWVzdAogICAgICAgIC5CdWlsZGVyKCkKICAgICAgICAudXJsKHVybCkKICAgICAgICAuaGVhZGVyKCJVc2VyLUFnZW50IiwgTFlSSUNTX0FHRU5UKQogICAgICAgIC5hcHBseSB7IGhlYWRlcnMuZm9yRWFjaCB7IChuYW1lLCB2YWx1ZSkgLT4gaGVhZGVyKG5hbWUsIHZhbHVlKSB9IH0KICAgICAgICAucG9zdChib2R5LnRvUmVxdWVzdEJvZHkoY29udGVudFR5cGUudG9NZWRpYVR5cGVPck51bGwoKSkpCiAgICAgICAgLmJ1aWxkKCkKICAgIGV4ZWN1dGUoY2xpZW50LCByZXF1ZXN0KQogIH0KCnByaXZhdGUgc3VzcGVuZCBmdW4gbHlyaWNzQ2FsbCgKICB1cmw6IFN0cmluZywKICBoZWFkZXJzOiBNYXA8U3RyaW5nLCBTdHJpbmc+LAogIHBhdGllbnQ6IEJvb2xlYW4gPSBmYWxzZSwKKTogU3RyaW5nPyA9CiAgcnVuQ2F0Y2hpbmdRdWlldCB7CiAgICB2YWwgcmVxdWVzdCA9CiAgICAgIFJlcXVlc3QKICAgICAgICAuQnVpbGRlcigpCiAgICAgICAgLnVybCh1cmwpCiAgICAgICAgLmhlYWRlcigiVXNlci1BZ2VudCIsIExZUklDU19BR0VOVCkKICAgICAgICAuaGVhZGVyKCJBY2NlcHQiLCAiKi8qIikKICAgICAgICAuYXBwbHkgeyBoZWFkZXJzLmZvckVhY2ggeyAobmFtZSwgdmFsdWUpIC0+IGhlYWRlcihuYW1lLCB2YWx1ZSkgfSB9CiAgICAgICAgLmdldCgpCiAgICAgICAgLmJ1aWxkKCkKICAgIGV4ZWN1dGUoaWYgKHBhdGllbnQpIHBhdGllbnRDbGllbnQgZWxzZSBjbGllbnQsIHJlcXVlc3QpCiAgfQoKcHJpdmF0ZSBzdXNwZW5kIGZ1biBleGVjdXRlKAogIGNsaWVudDogT2tIdHRwQ2xpZW50LAogIHJlcXVlc3Q6IFJlcXVlc3QsCik6IFN0cmluZz8gPQogIGNsaWVudC5uZXdDYWxsKHJlcXVlc3QpLmF3YWl0UmVzcG9uc2UoKS51c2UgeyByZXNwb25zZSAtPiByZWFkTHlyaWNzUmVzcG9uc2UocmVzcG9uc2UpIH0KCmludGVybmFsIHN1c3BlbmQgZnVuIHJlYWRMeXJpY3NSZXNwb25zZShyZXNwb25zZTogUmVzcG9uc2UpOiBTdHJpbmc/IHsKICB2YWwgcmVxdWVzdCA9IHJlc3BvbnNlLnJlcXVlc3QKICByZXR1cm4gaWYgKCFyZXNwb25zZS5pc1N1Y2Nlc3NmdWwpIHsKICAgIC8vIEEgY2F0YWxvZ3VlIG1pc3MgaXMgZGlmZmVyZW50IGZyb20gYW4gb3V0YWdlLCByZWplY3RlZCBrZXkgb3IgcmF0ZSBsaW1pdC4KICAgIGlmIChyZXNwb25zZS5jb2RlICE9IDQwNCkgcmVjb3JkTHlyaWNzRmFpbHVyZSgpCiAgICBMb2cuZCgiTHlyaWNzSHR0cCIsICIke3JlcXVlc3QudXJsLmhvc3R9OiBIVFRQICR7cmVzcG9uc2UuY29kZX0iKQogICAgbnVsbAogIH0gZWxzZSB7CiAgICAvLyBCb3VuZCBkZWNvbXByZXNzZWQgcmVzcG9uc2VzIGFzIHdlbGwgYXMgZGVjbGFyZWQgQ29udGVudC1MZW5ndGguCiAgICB2YWwgYm9keSA9IHJlc3BvbnNlLmJvZHkKICAgIHZhbCBzb3VyY2UgPSBib2R5LnNvdXJjZSgpCiAgICBpZiAoYm9keS5jb250ZW50TGVuZ3RoKCkgPiBNQVhfQk9EWV9CWVRFUyB8fCBzb3VyY2UucmVxdWVzdChNQVhfQk9EWV9CWVRFUyArIDEpKSB7CiAgICAgIHJlY29yZEx5cmljc0ZhaWx1cmUoKQogICAgICBMb2cudygiTHlyaWNzSHR0cCIsICIke3JlcXVlc3QudXJsLmhvc3R9OiByZXNwb25zZSBleGNlZWRzIGx5cmljcyBzaXplIGxpbWl0IikKICAgICAgbnVsbAogICAgfSBlbHNlIHsKICAgICAgdmFsIHRleHQgPSBib2R5LnN0cmluZygpLnRha2VJZiB7IGl0LmlzTm90QmxhbmsoKSB9CiAgICAgIGlmICh0ZXh0ICE9IG51bGwgJiYgdGV4dC50cmltU3RhcnQoKS5zdGFydHNXaXRoKCI8IikgJiYKICAgICAgICAodGV4dC5jb250YWlucygiPHRpdGxlPlNpdGUgVW5hdmFpbGFibGU8L3RpdGxlPiIsIGlnbm9yZUNhc2UgPSB0cnVlKSB8fAogICAgICAgICAgdGV4dC5jb250YWlucygiPHRpdGxlPkp1c3QgYSBtb21lbnQuLi4iLCBpZ25vcmVDYXNlID0gdHJ1ZSkpKSB7CiAgICAgICAgcmVjb3JkTHlyaWNzRmFpbHVyZSgpCiAgICAgICAgTG9nLncoIkx5cmljc0h0dHAiLCAiJHtyZXF1ZXN0LnVybC5ob3N0fTogYWNjZXNzIHBhZ2UgaW5zdGVhZCBvZiBjb250ZW50IikKICAgICAgICBudWxsCiAgICAgIH0gZWxzZSB7CiAgICAgICAgdGV4dAogICAgICB9CiAgICB9CiAgfQp9Cgpwcml2YXRlIGNvbnN0IHZhbCBNQVhfQk9EWV9CWVRFUyA9IDhMICogMTAyNCAqIDEwMjQKCi8qKgogKiBBIG1pc3MgaXMgbnVsbCwgbm90IGEgY3Jhc2gg4oCUIGJ1dCBhIGNhbmNlbGxlZCBsb29rdXAgaXMgYSBjYW5jZWxsZWQgbG9va3VwIGFuZAogKiBtdXN0IGtlZXAgdHJhdmVsbGluZyB1cCwgb3IgYSByYWNlIHRoYXQgaGFzIGFscmVhZHkgYmVlbiB3b24gd291bGQgYmUgcmV2aXZlZAogKiBieSB0aGUgbG9zZXIgaXQganVzdCBjYW5jZWxsZWQuCiAqLwpwcml2YXRlIHN1c3BlbmQgaW5saW5lIGZ1biBydW5DYXRjaGluZ1F1aWV0KGJsb2NrOiAoKSAtPiBTdHJpbmc/KTogU3RyaW5nPyA9CiAgdHJ5IHsKICAgIGJsb2NrKCkKICB9IGNhdGNoIChjYW5jZWxsYXRpb246IENhbmNlbGxhdGlvbkV4Y2VwdGlvbikgewogICAgdGhyb3cgY2FuY2VsbGF0aW9uCiAgfSBjYXRjaCAoZXJyb3I6IEV4Y2VwdGlvbikgewogICAgcmVjb3JkTHlyaWNzRmFpbHVyZSgpCiAgICAvLyBFeGNlcHRpb24gbWVzc2FnZXMgY2FuIGNvbnRhaW4gc2lnbmVkIFVSTHMsIHRva2VucyBhbmQgcXVlcnkgdGV4dC4KICAgIExvZy53KCJMeXJpY3NIdHRwIiwgIkx5cmljcyByZXF1ZXN0IGZhaWxlZDogJHtlcnJvci5qYXZhQ2xhc3Muc2ltcGxlTmFtZX0iKQogICAgbnVsbAogIH0KCi8qKiBRdWVyeS1zdHJpbmcgYnVpbGRlciB0aGF0IGNhbm5vdCBwcm9kdWNlIGEgbWFsZm9ybWVkIFVSTC4gKi8KaW50ZXJuYWwgZnVuIGJ1aWxkVXJsKAogIGJhc2U6IFN0cmluZywKICB2YXJhcmcgcGFyYW1zOiBQYWlyPFN0cmluZywgU3RyaW5nPz4sCik6IFN0cmluZz8gewogIHZhbCB1cmwgPSBiYXNlLnRvSHR0cFVybE9yTnVsbCgpID86IHJldHVybiBudWxsCiAgdmFsIGJ1aWxkZXIgPSB1cmwubmV3QnVpbGRlcigpCiAgcGFyYW1zLmZvckVhY2ggeyAobmFtZSwgdmFsdWUpIC0+CiAgICBpZiAoIXZhbHVlLmlzTnVsbE9yQmxhbmsoKSkgYnVpbGRlci5hZGRRdWVyeVBhcmFtZXRlcihuYW1lLCB2YWx1ZSkKICB9CiAgcmV0dXJuIGJ1aWxkZXIuYnVpbGQoKS50b1N0cmluZygpCn0K
+/*
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+package app.gyrolet.mpvrx.data.lyrics.providers
+
+import android.util.Log
+import app.gyrolet.mpvrx.BuildConfig
+import app.gyrolet.mpvrx.network.SharedHttpClient
+import app.gyrolet.mpvrx.network.awaitResponse
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.serialization.json.Json
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicBoolean
+import kotlin.coroutines.AbstractCoroutineContextElement
+import kotlin.coroutines.CoroutineContext
+
+/** Shared by a provider's child requests, including its mirror race. */
+internal class LyricsRequestStatus : AbstractCoroutineContextElement(Key) {
+  companion object Key : CoroutineContext.Key<LyricsRequestStatus>
+  val failed = AtomicBoolean(false)
+}
+
+internal suspend fun recordLyricsFailure() {
+  currentCoroutineContext()[LyricsRequestStatus]?.failed?.set(true)
+}
+
+/**
+ * Shared plumbing for the lyrics providers.
+ *
+ * Every provider is raced against the others, so one that hangs holds up the
+ * whole lookup: deadlines here are deliberately far shorter than the shared
+ * client's stream-oriented ones. A lyric that arrives after the second chorus
+ * is of no use, and the providers still waiting behind it are the better answer.
+ */
+internal val lyricsJson =
+  Json {
+    ignoreUnknownKeys = true
+    isLenient = true
+  }
+
+internal val LYRICS_AGENT = "TamaPlayer/${BuildConfig.VERSION_NAME} (based on https://github.com/Riteshp2001/mpvRx)"
+
+private const val TIMEOUT_SECONDS = 6L
+
+/** Hosts that have to resolve a track against an upstream catalogue first. */
+private const val PATIENT_TIMEOUT_SECONDS = 15L
+
+private val client: OkHttpClient by lazy {
+  SharedHttpClient.derive {
+    callTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
+    connectTimeout(3, TimeUnit.SECONDS)
+    readTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
+  }
+}
+
+private val patientClient: OkHttpClient by lazy {
+  SharedHttpClient.derive {
+    callTimeout(PATIENT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+    connectTimeout(10, TimeUnit.SECONDS)
+    readTimeout(PATIENT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+  }
+}
+
+/** Body of a successful GET, or null for any failure at all. */
+internal suspend fun lyricsGet(
+  url: String,
+  headers: Map<String, String> = emptyMap(),
+  patient: Boolean = false,
+): String? = lyricsCall(url, headers, patient)
+
+/** Body of a GET carrying an Apple-style bearer token and browser origin. */
+internal suspend fun lyricsGetAuthorized(
+  url: String,
+  bearer: String,
+): String? =
+  lyricsGet(
+    url,
+    buildMap {
+      put("Authorization", "Bearer $bearer")
+      put("Origin", "https://music.apple.com")
+      put("Referer", "https://music.apple.com/")
+    },
+  )
+
+internal suspend fun lyricsPost(
+  url: String,
+  body: String,
+  contentType: String = "application/json; charset=utf-8",
+  headers: Map<String, String> = emptyMap(),
+): String? =
+  runCatchingQuiet {
+    val request =
+      Request
+        .Builder()
+        .url(url)
+        .header("User-Agent", LYRICS_AGENT)
+        .apply { headers.forEach { (name, value) -> header(name, value) } }
+        .post(body.toRequestBody(contentType.toMediaTypeOrNull()))
+        .build()
+    execute(client, request)
+  }
+
+private suspend fun lyricsCall(
+  url: String,
+  headers: Map<String, String>,
+  patient: Boolean = false,
+): String? =
+  runCatchingQuiet {
+    val request =
+      Request
+        .Builder()
+        .url(url)
+        .header("User-Agent", LYRICS_AGENT)
+        .header("Accept", "*/*")
+        .apply { headers.forEach { (name, value) -> header(name, value) } }
+        .get()
+        .build()
+    execute(if (patient) patientClient else client, request)
+  }
+
+private suspend fun execute(
+  client: OkHttpClient,
+  request: Request,
+): String? =
+  client.newCall(request).awaitResponse().use { response -> readLyricsResponse(response) }
+
+internal suspend fun readLyricsResponse(response: Response): String? {
+  val request = response.request
+  return if (!response.isSuccessful) {
+    // A catalogue miss is different from an outage, rejected key or rate limit.
+    if (response.code != 404) recordLyricsFailure()
+    Log.d("LyricsHttp", "${request.url.host}: HTTP ${response.code}")
+    null
+  } else {
+    // Bound decompressed responses as well as declared Content-Length.
+    val body = response.body
+    val source = body.source()
+    if (body.contentLength() > MAX_BODY_BYTES || source.request(MAX_BODY_BYTES + 1)) {
+      recordLyricsFailure()
+      Log.w("LyricsHttp", "${request.url.host}: response exceeds lyrics size limit")
+      null
+    } else {
+      val text = body.string().takeIf { it.isNotBlank() }
+      if (text != null && text.trimStart().startsWith("<") &&
+        (text.contains("<title>Site Unavailable</title>", ignoreCase = true) ||
+          text.contains("<title>Just a moment...", ignoreCase = true))) {
+        recordLyricsFailure()
+        Log.w("LyricsHttp", "${request.url.host}: access page instead of content")
+        null
+      } else {
+        text
+      }
+    }
+  }
+}
+
+private const val MAX_BODY_BYTES = 8L * 1024 * 1024
+
+/**
+ * A miss is null, not a crash — but a cancelled lookup is a cancelled lookup and
+ * must keep travelling up, or a race that has already been won would be revived
+ * by the loser it just cancelled.
+ */
+private suspend inline fun runCatchingQuiet(block: () -> String?): String? =
+  try {
+    block()
+  } catch (cancellation: CancellationException) {
+    throw cancellation
+  } catch (error: Exception) {
+    recordLyricsFailure()
+    // Exception messages can contain signed URLs, tokens and query text.
+    Log.w("LyricsHttp", "Lyrics request failed: ${error.javaClass.simpleName}")
+    null
+  }
+
+/** Query-string builder that cannot produce a malformed URL. */
+internal fun buildUrl(
+  base: String,
+  vararg params: Pair<String, String?>,
+): String? {
+  val url = base.toHttpUrlOrNull() ?: return null
+  val builder = url.newBuilder()
+  params.forEach { (name, value) ->
+    if (!value.isNullOrBlank()) builder.addQueryParameter(name, value)
+  }
+  return builder.build().toString()
+}
