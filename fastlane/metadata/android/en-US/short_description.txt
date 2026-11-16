@@ -1,1 +1,1 @@
-VGFtYSBQbGF5ZXIgLSBhIHBvd2VyZnVsIG1wdi1iYXNlZCBtZWRpYSBwbGF5ZXIuIE5vIGFkcywgbm8gdHJhY2tlcnMu
+Tama Player - a powerful mpv-based media player. No ads, no trackers.
