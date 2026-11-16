@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tama Player — Web</title>
+<meta name="description" content="Tama Player for the web. Play local files and streams in your browser. Fork of mpvRx (AGPL-3.0).">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<style>
+  :root{
+    --accent:#884AFB; --accent-soft:rgba(136,74,251,.16);
+    --bg:#0B0B10; --surface:#14141C; --surface2:#1C1C28; --border:#262635;
+    --text:#F2F2F7; --muted:#9A9AB0; --radius:16px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{background:var(--bg); color:var(--text); font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif; display:flex; flex-direction:column; min-height:100vh}
+  header{display:flex; align-items:center; gap:12px; padding:14px 20px; border-bottom:1px solid var(--border); background:var(--surface)}
+  header img{width:34px; height:34px}
+  header .name{font-size:20px; font-weight:700; letter-spacing:.2px}
+  header .badge{background:var(--accent); color:#fff; font-size:11px; font-weight:700; padding:3px 8px; border-radius:999px; letter-spacing:1px}
+  header .spacer{flex:1}
+  .themes{display:flex; gap:8px; align-items:center}
+  .themes span{font-size:12px; color:var(--muted); margin-right:2px}
+  .swatch{width:20px; height:20px; border-radius:50%; border:2px solid transparent; cursor:pointer; padding:0}
+  .swatch.active{border-color:#fff}
+  main{flex:1; display:grid; grid-template-columns:1fr 320px; gap:16px; padding:16px 20px; max-width:1440px; width:100%; margin:0 auto}
+  @media (max-width:900px){ main{grid-template-columns:1fr} }
+  .stage{background:#000; border-radius:var(--radius); overflow:hidden; position:relative; aspect-ratio:16/9; max-height:72vh; width:100%; border:1px solid var(--border)}
+  .stage video{width:100%; height:100%; display:block; background:#000}
+  .stage.dragover{outline:2px dashed var(--accent); outline-offset:-10px}
+  .drop-hint{position:absolute; inset:0; display:none; place-items:center; background:rgba(0,0,0,.65); font-size:18px; font-weight:600; pointer-events:none; z-index:5}
+  .stage.dragover .drop-hint{display:grid}
+  .empty{position:absolute; inset:0; display:grid; place-items:center; text-align:center; color:var(--muted); padding:24px; z-index:2}
+  .empty .big{font-size:44px; margin-bottom:10px; color:var(--accent)}
+  .empty.hidden{display:none}
+  .seekflash{position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.55); color:#fff; padding:10px 14px; border-radius:999px; font-weight:700; opacity:0; transition:opacity .25s; pointer-events:none; z-index:6}
+  .seekflash.left{left:24px} .seekflash.right{right:24px}
+  .controls{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; margin-top:12px}
+  .seekrow{display:flex; align-items:center; gap:10px}
+  .time{font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums; min-width:86px; text-align:center}
+  input[type=range]{-webkit-appearance:none; appearance:none; height:6px; border-radius:3px; background:var(--surface2); outline:none; cursor:pointer}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent); border:2px solid #fff}
+  input[type=range]::-moz-range-thumb{width:12px; height:12px; border-radius:50%; background:var(--accent); border:2px solid #fff}
+  #seek{flex:1}
+  .btnrow{display:flex; align-items:center; gap:6px; margin-top:10px; flex-wrap:wrap}
+  button.ctl{background:var(--surface2); color:var(--text); border:1px solid var(--border); border-radius:10px; padding:8px 12px; font-size:14px; cursor:pointer; display:inline-flex; align-items:center; gap:6px}
+  button.ctl:hover{border-color:var(--accent)}
+  button.ctl.primary{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:700; min-width:52px; justify-content:center}
+  .btnrow .spacer{flex:1}
+  #vol{width:90px}
+  select{background:var(--surface2); color:var(--text); border:1px solid var(--border); border-radius:10px; padding:8px; font-size:13px; cursor:pointer}
+  .openbar{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
+  .openbar input[type=text]{flex:1; min-width:220px; background:var(--surface); border:1px solid var(--border); color:var(--text); border-radius:10px; padding:10px 12px; font-size:14px}
+  .openbar label.ctl{background:var(--surface2); border:1px solid var(--border); border-radius:10px; padding:10px 14px; font-size:14px; cursor:pointer; display:inline-flex; align-items:center}
+  .openbar label.ctl:hover{border-color:var(--accent)}
+  aside{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px; display:flex; flex-direction:column; min-height:200px}
+  aside h2{font-size:14px; letter-spacing:.6px; color:var(--muted); text-transform:uppercase; margin-bottom:10px}
+  #playlist{list-style:none; overflow-y:auto; display:flex; flex-direction:column; gap:6px}
+  #playlist li{padding:10px 12px; background:var(--surface2); border:1px solid var(--border); border-radius:10px; cursor:pointer; font-size:13px; display:flex; gap:8px; align-items:center}
+  #playlist li .t{flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  #playlist li.active{border-color:var(--accent); background:var(--accent-soft)}
+  #playlist li .x{color:var(--muted); background:none; border:none; cursor:pointer; font-size:14px; padding:2px 4px}
+  .nowplaying{font-size:13px; color:var(--muted); margin-top:12px; word-break:break-word}
+  .nowplaying b{color:var(--text)}
+  footer{padding:14px 20px; border-top:1px solid var(--border); color:var(--muted); font-size:12px; line-height:1.6}
+  footer a{color:var(--accent)}
+  .toast{position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:var(--surface2); border:1px solid var(--accent); color:var(--text); padding:10px 16px; border-radius:999px; font-size:13px; opacity:0; pointer-events:none; transition:opacity .3s; z-index:50; max-width:90vw; text-align:center}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <img src="logo.svg" alt="Tama Player logo">
+  <div class="name">Tama Player</div>
+  <div class="badge">WEB</div>
+  <div class="spacer"></div>
+  <div class="themes"><span>Theme</span>
+    <button class="swatch active" data-accent="#884AFB" style="background:#884AFB" title="Default Purple"></button>
+    <button class="swatch" data-accent="#CBA6F7" style="background:#CBA6F7" title="Catppuccin"></button>
+    <button class="swatch" data-accent="#88C0D0" style="background:#88C0D0" title="Nord"></button>
+    <button class="swatch" data-accent="#FF79C6" style="background:#FF79C6" title="Dracula"></button>
+    <button class="swatch" data-accent="#7AA2F7" style="background:#7AA2F7" title="Tokyo Night"></button>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="stage" id="stage">
+      <video id="video" playsinline crossorigin="anonymous"></video>
+      <div class="empty" id="empty">
+        <div>
+          <div class="big">▶</div>
+          <div style="font-size:17px; font-weight:600; color:var(--text)">Drop a video or audio file here</div>
+          <div style="margin-top:6px">or open files below, or paste a stream URL (MP4, WebM, HLS .m3u8)</div>
+        </div>
+      </div>
+      <div class="drop-hint">Drop to play</div>
+      <div class="seekflash left" id="flashL">−10s</div>
+      <div class="seekflash right" id="flashR">+10s</div>
+    </div>
+
+    <div class="controls">
+      <div class="seekrow">
+        <span class="time" id="tCur">0:00</span>
+        <input type="range" id="seek" min="0" max="1000" value="0">
+        <span class="time" id="tDur">0:00</span>
+      </div>
+      <div class="btnrow">
+        <button class="ctl" id="prevBtn" title="Previous (P)">⏮</button>
+        <button class="ctl" id="backBtn" title="Back 10 seconds (←)">⏪ 10</button>
+        <button class="ctl primary" id="playBtn" title="Play/Pause (Space)">▶</button>
+        <button class="ctl" id="fwdBtn" title="Forward 10 seconds (→)">10 ⏩</button>
+        <button class="ctl" id="nextBtn" title="Next (N)">⏭</button>
+        <input type="range" id="vol" min="0" max="100" value="90" title="Volume">
+        <div class="spacer"></div>
+        <select id="speed" title="Playback speed">
+          <option value="0.5">0.5×</option><option value="0.75">0.75×</option>
+          <option value="1" selected>1×</option><option value="1.25">1.25×</option>
+          <option value="1.5">1.5×</option><option value="2">2×</option>
+        </select>
+        <select id="subs" title="Subtitles"><option value="-1">Subs: Off</option></select>
+        <button class="ctl" id="pipBtn" title="Picture in picture">⧉ PiP</button>
+        <button class="ctl" id="fsBtn" title="Fullscreen (F)">⛶ Full</button>
+      </div>
+      <div class="openbar">
+        <label class="ctl">📁 Open files<input type="file" id="fileInput" accept="video/*,audio/*,.mkv,.srt,.vtt" multiple hidden></label>
+        <label class="ctl">💬 Add subtitles<input type="file" id="subInput" accept=".srt,.vtt" multiple hidden></label>
+        <input type="text" id="urlInput" placeholder="Paste a stream URL — https://…/video.mp4 or .m3u8">
+        <button class="ctl" id="urlBtn">Play URL</button>
+      </div>
+      <div class="nowplaying" id="nowPlaying">Nothing loaded yet.</div>
+    </div>
+  </section>
+
+  <aside>
+    <h2>Playlist</h2>
+    <ul id="playlist"></ul>
+    <div class="nowplaying">Tip: double-click the left/right side of the video to seek ∓10s, like the Android app. Keys: Space, ←/→, F, M, N/P.</div>
+  </aside>
+</main>
+
+<footer>
+  Tama Player Web — the browser companion to the Tama Player Android app, in the same repository and sharing its name, logo (#884AFB purple) and design.
+  Browsers play MP4/WebM/MP3/AAC and HLS streams natively; formats only libmpv handles on Android (MKV, AVI, ASS styling, torrents, Anime4K shaders) stay Android-only — see web/README.md.
+  Fork of <a href="https://github.com/Riteshp2001/mpvRx">mpvRx</a> · AGPL-3.0 · No ads, no trackers.
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const video = $("video"), stage = $("stage"), empty = $("empty");
+let queue = [];        // {title, url, isBlob}
+let current = -1;
+let hls = null;
+let toastTimer = null;
+
+function toast(msg){
+  const t = $("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove("show"), 3200);
+}
+function fmt(s){ if(!isFinite(s)) return "0:00"; s=Math.max(0,Math.floor(s));
+  const h=Math.floor(s/3600), m=Math.floor(s%3600/60), r=s%60;
+  return (h? h+":" + String(m).padStart(2,"0") : m) + ":" + String(r).padStart(2,"0"); }
+
+/* ---------- playlist ---------- */
+function renderPlaylist(){
+  const ul = $("playlist"); ul.innerHTML = "";
+  queue.forEach((item, i)=>{
+    const li = document.createElement("li");
+    if(i===current) li.className = "active";
+    const t = document.createElement("span"); t.className="t"; t.textContent = item.title; t.title = item.title;
+    const x = document.createElement("button"); x.className="x"; x.textContent="✕"; x.title="Remove";
+    x.onclick = e=>{ e.stopPropagation(); removeItem(i); };
+    li.append(t, x);
+    li.onclick = ()=> playIndex(i);
+    ul.appendChild(li);
+  });
+}
+function removeItem(i){
+  const it = queue[i];
+  if(it && it.isBlob) URL.revokeObjectURL(it.url);
+  queue.splice(i,1);
+  if(i===current){ current=-1; video.removeAttribute("src"); video.load(); empty.classList.remove("hidden"); $("nowPlaying").textContent="Nothing loaded yet."; }
+  else if(i<current) current--;
+  renderPlaylist();
+}
+function enqueue(title, url, isBlob){
+  queue.push({title, url, isBlob});
+  renderPlaylist();
+  return queue.length-1;
+}
+function playIndex(i){
+  if(i<0 || i>=queue.length) return;
+  current = i;
+  const item = queue[i];
+  loadSource(item.url);
+  $("nowPlaying").innerHTML = "Now playing: <b></b>";
+  $("nowPlaying").querySelector("b").textContent = item.title;
+  empty.classList.add("hidden");
+  renderPlaylist();
+  remember(item);
+}
+function next(auto){
+  if(current+1 < queue.length) playIndex(current+1);
+  else if(auto) toast("End of playlist");
+}
+function prev(){ if(current>0) playIndex(current-1); }
+
+/* ---------- source loading (file / URL / HLS) ---------- */
+function loadSource(url){
+  if(hls){ hls.destroy(); hls=null; }
+  clearSubtitles();
+  const isHls = /\.m3u8($|\?)/i.test(url);
+  if(isHls && window.Hls && Hls.isSupported()){
+    hls = new Hls();
+    hls.loadSource(url); hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, ()=> video.play().catch(()=>{}));
+    hls.on(Hls.Events.ERROR, (e, data)=>{ if(data && data.fatal) toast("Stream error: " + data.details); });
+  } else {
+    video.src = url;
+    video.play().catch(()=>{});
+  }
+  restorePosition(url);
+}
+
+/* ---------- subtitles (.srt / .vtt) ---------- */
+function srtToVtt(text){
+  const body = text.replace(/\r\n/g,"\n").replace(/\r/g,"\n")
+    .replace(/(\d{2}:\d{2}:\d{2}),(\d{3})/g, "$1.$2");
+  return "WEBVTT\n\n" + body;
+}
+function addSubtitleFile(file){
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    let text = String(reader.result);
+    if(file.name.toLowerCase().endsWith(".srt")) text = srtToVtt(text);
+    const blobUrl = URL.createObjectURL(new Blob([text], {type:"text/vtt"}));
+    const track = document.createElement("track");
+    track.kind = "subtitles"; track.label = file.name; track.src = blobUrl;
+    video.appendChild(track);
+    const sel = $("subs");
+    const opt = document.createElement("option");
+    opt.value = String(video.textTracks.length-1); opt.textContent = file.name;
+    sel.appendChild(opt);
+    sel.value = opt.value; applySubs();
+    toast("Subtitles loaded: " + file.name);
+  };
+  reader.readAsText(file);
+}
+function clearSubtitles(){
+  [...video.querySelectorAll("track")].forEach(t=>t.remove());
+  const sel = $("subs"); sel.innerHTML = '<option value="-1">Subs: Off</option>';
+  for(const t of video.textTracks) t.mode = "disabled";
+}
+function applySubs(){
+  const want = parseInt($("subs").value, 10);
+  [...video.textTracks].forEach((t, i)=>{ t.mode = (i===want) ? "showing" : "disabled"; });
+}
+$("subs").addEventListener("change", applySubs);
+$("subInput").addEventListener("change", e=>{ [...e.target.files].forEach(addSubtitleFile); e.target.value=""; });
+
+/* ---------- opening media ---------- */
+function openFiles(files){
+  let firstNew = -1;
+  for(const f of files){
+    if(/.(srt|vtt)$/i.test(f.name)){ addSubtitleFile(f); continue; }
+    const url = URL.createObjectURL(f);
+    const idx = enqueue(f.name, url, true);
+    if(firstNew<0) firstNew = idx;
+  }
+  if(firstNew>=0 && current<0) playIndex(firstNew);
+  else if(firstNew>=0) toast("Added to playlist");
+}
+$("fileInput").addEventListener("change", e=>{ openFiles([...e.target.files]); e.target.value=""; });
+
+function openUrl(){
+  const u = $("urlInput").value.trim();
+  if(!u) return;
+  let title = u; try{ title = decodeURIComponent(new URL(u).pathname.split("/").pop() || u); }catch(_){}
+  const idx = enqueue(title || u, u, false);
+  playIndex(idx);
+  $("urlInput").value = "";
+}
+$("urlBtn").addEventListener("click", openUrl);
+$("urlInput").addEventListener("keydown", e=>{ if(e.key==="Enter") openUrl(); });
+
+/* drag & drop */
+["dragenter","dragover"].forEach(ev=> stage.addEventListener(ev, e=>{ e.preventDefault(); stage.classList.add("dragover"); }));
+["dragleave","drop"].forEach(ev=> stage.addEventListener(ev, e=>{ e.preventDefault(); stage.classList.remove("dragover"); }));
+stage.addEventListener("drop", e=>{ const fs=[...e.dataTransfer.files]; if(fs.length) openFiles(fs); });
+
+/* ---------- transport ---------- */
+const playBtn = $("playBtn");
+function syncPlayBtn(){ playBtn.textContent = video.paused ? "▶" : "⏸"; }
+video.addEventListener("play", syncPlayBtn);
+video.addEventListener("pause", syncPlayBtn);
+playBtn.addEventListener("click", ()=> video.paused ? video.play() : video.pause());
+video.addEventListener("click", ()=> video.paused ? video.play() : video.pause());
+$("backBtn").addEventListener("click", ()=> seekBy(-10));
+$("fwdBtn").addEventListener("click", ()=> seekBy(10));
+$("nextBtn").addEventListener("click", ()=> next(false));
+$("prevBtn").addEventListener("click", prev);
+video.addEventListener("ended", ()=> next(true));
+function seekBy(d){
+  if(isFinite(video.duration)) video.currentTime = Math.min(Math.max(0, video.currentTime+d), video.duration);
+  flash(d);
+}
+function flash(d){
+  const el = d<0 ? $("flashL") : $("flashR");
+  el.textContent = (d<0?"−":"+") + Math.abs(d) + "s";
+  el.style.opacity = 1; setTimeout(()=> el.style.opacity = 0, 450);
+}
+stage.addEventListener("dblclick", e=>{
+  const r = stage.getBoundingClientRect();
+  seekBy(e.clientX - r.left < r.width/2 ? -10 : 10);
+});
+
+/* seek + volume + speed */
+const seek = $("seek");
+video.addEventListener("timeupdate", ()=>{
+  if(isFinite(video.duration) && video.duration>0) seek.value = Math.round(video.currentTime/video.duration*1000);
+  $("tCur").textContent = fmt(video.currentTime);
+  savePosition();
+});
+video.addEventListener("loadedmetadata", ()=>{ $("tDur").textContent = fmt(video.duration); });
+seek.addEventListener("input", ()=>{
+  if(isFinite(video.duration)) video.currentTime = seek.value/1000*video.duration;
+});
+$("vol").addEventListener("input", e=>{ video.volume = e.target.value/100; });
+video.volume = 0.9;
+$("speed").addEventListener("change", e=>{ video.playbackRate = parseFloat(e.target.value); });
+$("pipBtn").addEventListener("click", async ()=>{
+  try{ if(document.pictureInPictureElement) await document.exitPictureInPicture();
+       else await video.requestPictureInPicture(); }
+  catch(_){ toast("Picture-in-picture is not available for this stream"); }
+});
+$("fsBtn").addEventListener("click", ()=>{
+  if(document.fullscreenElement) document.exitFullscreen();
+  else stage.requestFullscreen && stage.requestFullscreen();
+});
+
+/* keyboard */
+document.addEventListener("keydown", e=>{
+  if(/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) return;
+  if(e.code==="Space"){ e.preventDefault(); video.paused ? video.play() : video.pause(); }
+  else if(e.key==="ArrowRight") seekBy(10);
+  else if(e.key==="ArrowLeft") seekBy(-10);
+  else if(e.key==="f" || e.key==="F") $("fsBtn").click();
+  else if(e.key==="m" || e.key==="M") video.muted = !video.muted;
+  else if(e.key==="n" || e.key==="N") next(false);
+  else if(e.key==="p" || e.key==="P") prev();
+});
+
+/* ---------- resume position (URLs only) ---------- */
+let lastUrl = "";
+function remember(item){ lastUrl = item.isBlob ? "" : item.url; }
+function savePosition(){
+  if(lastUrl && isFinite(video.currentTime) && video.currentTime>5)
+    try{ localStorage.setItem("tp_pos_" + lastUrl, String(video.currentTime)); }catch(_){}
+}
+function restorePosition(url){
+  try{ const p = parseFloat(localStorage.getItem("tp_pos_" + url) || "0");
+       if(p>5) video.addEventListener("loadedmetadata", function h(){ video.currentTime = p; video.removeEventListener("loadedmetadata", h); });
+  }catch(_){}
+}
+
+/* ---------- themes ---------- */
+function setAccent(hex, btn){
+  document.documentElement.style.setProperty("--accent", hex);
+  document.documentElement.style.setProperty("--accent-soft", hex + "29");
+  document.querySelectorAll(".swatch").forEach(s=> s.classList.toggle("active", s===btn));
+  try{ localStorage.setItem("tp_accent", hex); }catch(_){}
+}
+document.querySelectorAll(".swatch").forEach(btn=>{
+  btn.addEventListener("click", ()=> setAccent(btn.dataset.accent, btn));
+});
+try{ const saved = localStorage.getItem("tp_accent");
+     if(saved) document.querySelectorAll(".swatch").forEach(b=>{ if(b.dataset.accent===saved) setAccent(saved, b); });
+}catch(_){}
+
+/* media session (lock screen / notification controls) */
+if("mediaSession" in navigator){
+  navigator.mediaSession.setActionHandler("play", ()=> video.play());
+  navigator.mediaSession.setActionHandler("pause", ()=> video.pause());
+  navigator.mediaSession.setActionHandler("previoustrack", prev);
+  navigator.mediaSession.setActionHandler("nexttrack", ()=> next(false));
+  navigator.mediaSession.setActionHandler("seekbackward", ()=> seekBy(-10));
+  navigator.mediaSession.setActionHandler("seekforward", ()=> seekBy(10));
+}
+renderPlaylist();
+</script>
+</body>
+</html>
