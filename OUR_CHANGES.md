@@ -1,1 +1,36 @@
-IyBUYW1hIFBsYXllciAtIGNoYW5nZXMgdnMgdXBzdHJlYW0gbXB2UnggKHYxLjAuMCwgMjAyNi0xMS0xNikKCiMjIElkZW50aXR5Ci0gQXBwIG5hbWU6IG1wdlJ4IC0+IFRhbWEgUGxheWVyIChzdHJpbmdzLnhtbCBhcHBfbmFtZSArIDIzIHVzZXItdmlzaWJsZSBzdHJpbmdzLCBmYXN0bGFuZSB0aXRsZSkKLSBhcHBsaWNhdGlvbklkOiBhcHAuZ3lyb2xldC5tcHZyeCAvIGNvbS5neXJvbGV0Lm1wdnJ4IC0+IGNvbS50YW1hLnBsYXllciAoYWxsIGZsYXZvcnMpCiAgSW5zdGFsbHMgc2lkZS1ieS1zaWRlIHdpdGggdGhlIG9yaWdpbmFsOyBzZXBhcmF0ZSBkYXRhLCBubyBjbGFzaC4KLSByb290UHJvamVjdC5uYW1lOiBtcHZSeCAtPiBUYW1hUGxheWVyCi0gVmVyc2lvbjogcmVzZXQgdG8gb3VyIG93biBiYW5kIC0gdmVyc2lvbk5hbWUgMS4wLjAsIHJlbGVhc2VWZXJzaW9uQ29kZSAxCgojIyBCZWhhdmlvdXIKLSBTZWxmLXVwZGF0ZSBub3cgY2hlY2tzIGdpdGh1Yi5jb20vdGhlbG90c2tpZS9UYW1hUGxheWVyIHJlbGVhc2VzLCBOT1QgdXBzdHJlYW0uCiAgKFVwc3RyZWFtJ3MgdXBkYXRlciB3b3VsZCBoYXZlIHNpbGVudGx5IHJlcGxhY2VkIFRhbWEgUGxheWVyIHdpdGggc3RvY2sgbXB2UnguKQogIFVudGlsIHRoYXQgcmVwbyBoYXMgYSByZWxlYXNlLCB0aGUgY2hlY2sgc2ltcGx5IGZpbmRzIG5vIHVwZGF0ZS4KLSBMeXJpY3MgcHJvdmlkZXIgdXNlci1hZ2VudCBpZGVudGlmaWVzIGFzIFRhbWFQbGF5ZXIsIGNyZWRpdGluZyB1cHN0cmVhbS4KCiMjIEtlcHQgb24gcHVycG9zZSAoQUdQTC0zLjAgKyBob25lc3R5KQotIExJQ0VOU0UgdW5jaGFuZ2VkOyB1cHN0cmVhbSBSRUFETUUgcHJlc2VydmVkIGFzIFVQU1RSRUFNX1JFQURNRS5tZAotIEFib3V0IC8gSGFsbCBvZiBGYW1lIC8gY29udHJpYnV0b3JzIHN0aWxsIGNyZWRpdCBtcHZSeCwgbXB2RXgsIG1wdkt0IGFuZCBtcHYgYXV0aG9ycwotIGdpdGh1Yl9yZXBvX3VybCBzdHJpbmcgc3RpbGwgcG9pbnRzIGF0IHVwc3RyZWFtIHVudGlsIG91ciByZXBvIGlzIHB1Ymxpc2hlZAotIEludGVybmFsIG5hbWVzcGFjZSBhcHAuZ3lyb2xldC5tcHZyeCB1bmNoYW5nZWQgKHNlZSBVUFNUUkVBTS5tZCkKCiMjIE5PVCBkb25lIHlldCAtIG5lZWRzIE90aGVsbydzIHBpY2sKLSBBcHAgaWNvbiAvIHNwbGFzaDogc3RpbGwgdXBzdHJlYW0gcHVycGxlIHBsYXkgaWNvbiAoYXNzZXRzIGluIGFwcC9zcmMvbWFpbi9yZXMvbWlwbWFwLSopCi0gRGVmYXVsdCB0aGVtZS9hY2NlbnQ6IHVwc3RyZWFtIHNoaXBzIDI1KyB0aGVtZXMsIHB1cnBsZSBkZWZhdWx0IC0gY2FuIHNldCBvdXIgb3duIGRlZmF1bHQKLSBGZWF0dXJlIHRyaW1zOiB0b3JyZW50IHN0cmVhbWluZywgSmVsbHlmaW4sIE5hdmlkcm9tZSwgQUkgc3VidGl0bGVzLCB5dC1kbHAgYWxsIHN0aWxsIGluCi0gQSByZWFsIEFQSyBidWlsZDogc2VlIEJVSUxEX05PVEVTLm1kCgojIyBDbG91ZCBidWlsZCBzZXR1cCAoMjAyNi0xMS0xNikKLSBBZGRlZCAuZ2l0aHViL3dvcmtmbG93cy90YW1hLWJ1aWxkLnltbDogYnVpbGRzIDphcHA6YXNzZW1ibGVTdGFuZGFyZERlYnVnIG9uCiAgcHVzaCB0byBtYXN0ZXIgKGFwcCBwYXRocyBvbmx5KSBvciBvbiBkZW1hbmQ7IHVwbG9hZHMgdGhlIGluc3RhbGxhYmxlIGRlYnVnIEFQSwogIGFzIHRoZSBUYW1hUGxheWVyLWRlYnVnLWFwayBhcnRpZmFjdC4gTm8gc2VjcmV0cyBuZWVkZWQuCi0gVXBzdHJlYW0gYnVpbGQueW1sOiByZW1vdmVkIGl0cyBwdXNoLXRvLW1hc3RlciB0cmlnZ2VyICg1LWZsYXZvciByZWxlYXNlCiAgbWF0cml4LCBzaWducyBvbmx5IHdoZW4gU0lHTklOR18qIHNlY3JldHMgZXhpc3QpIC0gbm93IFBSL21hbnVhbCBvbmx5LgotIFVwc3RyZWFtIHByZXZpZXcueW1sOiBERUxFVEVELiBJdCByYW4gZXZlcnkgMzAgbWludXRlcyBhbmQgcHVibGlzaGVkIHRvIHRoZQogIHVwc3RyZWFtIGF1dGhvcidzIEdpdEh1YiBQYWdlcyBzaXRlIChyaXRlc2hwMjAwMS5naXRodWIuaW8vbXB2UngpLgotIFVwc3RyZWFtIHJlbGVhc2UueW1sOiBrZXB0LCB0YWctdHJpZ2dlcmVkOyBuZWVkcyBTSUdOSU5HXyogc2VjcmV0cyBiZWZvcmUgdXNlLgo=
+# Tama Player - changes vs upstream mpvRx (v1.0.0, 2026-11-16)
+
+## Identity
+- App name: mpvRx -> Tama Player (strings.xml app_name + 23 user-visible strings, fastlane title)
+- applicationId: app.gyrolet.mpvrx / com.gyrolet.mpvrx -> com.tama.player (all flavors)
+  Installs side-by-side with the original; separate data, no clash.
+- rootProject.name: mpvRx -> TamaPlayer
+- Version: reset to our own band - versionName 1.0.0, releaseVersionCode 1
+
+## Behaviour
+- Self-update now checks github.com/thelotskie/TamaPlayer releases, NOT upstream.
+  (Upstream's updater would have silently replaced Tama Player with stock mpvRx.)
+  Until that repo has a release, the check simply finds no update.
+- Lyrics provider user-agent identifies as TamaPlayer, crediting upstream.
+
+## Kept on purpose (AGPL-3.0 + honesty)
+- LICENSE unchanged; upstream README preserved as UPSTREAM_README.md
+- About / Hall of Fame / contributors still credit mpvRx, mpvEx, mpvKt and mpv authors
+- github_repo_url string still points at upstream until our repo is published
+- Internal namespace app.gyrolet.mpvrx unchanged (see UPSTREAM.md)
+
+## NOT done yet - needs Othelo's pick
+- App icon / splash: still upstream purple play icon (assets in app/src/main/res/mipmap-*)
+- Default theme/accent: upstream ships 25+ themes, purple default - can set our own default
+- Feature trims: torrent streaming, Jellyfin, Navidrome, AI subtitles, yt-dlp all still in
+- A real APK build: see BUILD_NOTES.md
+
+## Cloud build setup (2026-11-16)
+- Added .github/workflows/tama-build.yml: builds :app:assembleStandardDebug on
+  push to master (app paths only) or on demand; uploads the installable debug APK
+  as the TamaPlayer-debug-apk artifact. No secrets needed.
+- Upstream build.yml: removed its push-to-master trigger (5-flavor release
+  matrix, signs only when SIGNING_* secrets exist) - now PR/manual only.
+- Upstream preview.yml: DELETED. It ran every 30 minutes and published to the
+  upstream author's GitHub Pages site (riteshp2001.github.io/mpvRx).
+- Upstream release.yml: kept, tag-triggered; needs SIGNING_* secrets before use.
