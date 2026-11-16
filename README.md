@@ -1,1 +1,25 @@
-IyBUYW1hIFBsYXllcgoKKipUYW1hIFBsYXllcioqIC0gYSBwb3dlcmZ1bCwgZmVhdHVyZS1wYWNrZWQgQW5kcm9pZCB2aWRlbyAmIG11c2ljIHBsYXllciBiYXNlZCBvbiBsaWJtcHYuCk5vIGFkcy4gTm8gdHJhY2tlcnMuIEZvcmtlZCBmcm9tIG1wdlJ4IGJ5IE90aGVsbyAodGhlbG90c2tpZSksIGJ1aWx0IGJ5IFRhbWEuCgo+IFRoaXMgaXMgYSBmb3JrLCBub3QgYSBmcm9tLXNjcmF0Y2ggYXBwLiBGdWxsIGNyZWRpdCBhbmQgcHJvdmVuYW5jZTogc2VlIFVQU1RSRUFNLm1kLgo+IExpY2Vuc2VkIEFHUEwtMy4wLCBzYW1lIGFzIHVwc3RyZWFtIC0gc2VlIExJQ0VOU0UuCgojIyBXaGF0IGl0IHBsYXlzIC8gZG9lcyAoaW5oZXJpdGVkIGZyb20gbXB2UnggMy4wLjIuMSkKLSBMb2NhbCB2aWRlbyAmIG11c2ljIGxpYnJhcmllcywgU01CIC8gRlRQIC8gV2ViREFWLCBkaXJlY3Qgc3RyZWFtcywgSExTCi0gSERSIHNoYWRlciBwaXBlbGluZSAoODMgR0xTTCBzaGFkZXJzKSwgQW5pbWU0SyB1cHNjYWxpbmcsIGFtYmllbnQgbW9kZQotIEZ1bGwgZ2VzdHVyZSBzeXN0ZW06IGRvdWJsZS10YXAgc2Vlaywgc3dpcGUgc2Vlay92b2x1bWUvYnJpZ2h0bmVzcywgcGluY2ggem9vbSwgc3VidGl0bGUgZHJhZwotIER1YWwgc3VidGl0bGVzLCBvbmxpbmUgc3VidGl0bGUgc2VhcmNoLCBzdHlsaW5nLCBzcGVlY2gtdG8tc3VidGl0bGUKLSBKZWxseWZpbiBjbGllbnQsIE5hdmlkcm9tZS9TdWJzb25pYyBtdXNpYywgYXVkaW9ib29rcywgbHlyaWNzIChMUkNMSUIpCi0gR29vZ2xlIENhc3QsIFBpUCwgYmFja2dyb3VuZCBwbGF5YmFjaywgU3luY3BsYXksIHRvcnJlbnQgc3RyZWFtaW5nIChzaWRlbG9hZCBidWlsZHMpCi0gMjUrIHRoZW1lcyBpbmNsLiBBTU9MRUQgYmxhY2ssIE1hdGVyaWFsIDMgRXhwcmVzc2l2ZSBVSQotIHl0LWRscCBzdHJlYW1pbmcgKFlvdVR1YmUvVHdpdGNoL2V0Yy4pIGluIHNpZGVsb2FkIGJ1aWxkcwoKIyMgT3VyIGNoYW5nZXMKU2VlIE9VUl9DSEFOR0VTLm1kIC0gbmV3IG5hbWUsIG5ldyBwYWNrYWdlIChjb20udGFtYS5wbGF5ZXIpLCBvd24gdmVyc2lvbgpiYW5kLCBvd24gdXBkYXRlIGZlZWQuCgojIyBCdWlsZApTZWUgQlVJTERfTk9URVMubWQgLSBuZWVkcyBHaXRIdWIgQWN0aW9ucywgYSBXaW5kb3dzIFBDLCBvciBhIGJpZ2dlciBib3g7CnRoaXMgd29ya3NwYWNlIFZNIGNhbm5vdCBydW4gaXRzIEdyYWRsZSBidWlsZC4K
+# Tama Player
+
+**Tama Player** - a powerful, feature-packed Android video & music player based on libmpv.
+No ads. No trackers. Forked from mpvRx by Othelo (thelotskie), built by Tama.
+
+> This is a fork, not a from-scratch app. Full credit and provenance: see UPSTREAM.md.
+> Licensed AGPL-3.0, same as upstream - see LICENSE.
+
+## What it plays / does (inherited from mpvRx 3.0.2.1)
+- Local video & music libraries, SMB / FTP / WebDAV, direct streams, HLS
+- HDR shader pipeline (83 GLSL shaders), Anime4K upscaling, ambient mode
+- Full gesture system: double-tap seek, swipe seek/volume/brightness, pinch zoom, subtitle drag
+- Dual subtitles, online subtitle search, styling, speech-to-subtitle
+- Jellyfin client, Navidrome/Subsonic music, audiobooks, lyrics (LRCLIB)
+- Google Cast, PiP, background playback, Syncplay, torrent streaming (sideload builds)
+- 25+ themes incl. AMOLED black, Material 3 Expressive UI
+- yt-dlp streaming (YouTube/Twitch/etc.) in sideload builds
+
+## Our changes
+See OUR_CHANGES.md - new name, new package (com.tama.player), own version
+band, own update feed.
+
+## Build
+See BUILD_NOTES.md - needs GitHub Actions, a Windows PC, or a bigger box;
+this workspace VM cannot run its Gradle build.
